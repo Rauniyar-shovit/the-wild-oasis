@@ -1,0 +1,19 @@
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
+import { getBooking } from "../../services/apiBookings";
+
+const useBooking = () => {
+  const { bookingId } = useParams();
+  const {
+    data: booking,
+
+    isLoading,
+  } = useQuery({
+    queryKey: ["Booking", bookingId],
+    queryFn: () => getBooking(bookingId),
+    retry: false,
+  });
+  return { booking, isLoading };
+};
+
+export default useBooking;
