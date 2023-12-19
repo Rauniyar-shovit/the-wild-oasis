@@ -1,4 +1,3 @@
-import isFirstDayOfMonth from "date-fns/esm/isFirstDayOfMonth";
 import supabase, { supabaseUrl } from "./supabase";
 
 export async function signup({ fullName, email, password }) {
